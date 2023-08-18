@@ -68,6 +68,12 @@ const BookInfo = ({ books, addToCart, cart }) => {
                     Add To Cart
                   </button>
                 )}
+                {/* {
+                  <Link to="/cart">
+                    <button className="btn">Checkout</button>
+                  </Link>
+                
+                } */}
               </div>
             </div>
           </div>
