@@ -4,8 +4,8 @@ import Book from "./ui/Book";
 import {books} from "../data"
 
 const Featured = () => {
-    console.log(books)
-    console.log(books.filter(book => book.rating  === 5).slice(0,4))
+    
+    books.filter(book => book.rating  === 5).slice(0,4)
 
 
     return (

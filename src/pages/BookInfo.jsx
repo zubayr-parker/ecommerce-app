@@ -17,6 +17,8 @@ const BookInfo = ({ books, addToCart, cart }) => {
     return cart.find(book => +book.id === +id)
   }
 
+ 
+
 
   return (
     <div id="books__body">
