@@ -83,7 +83,7 @@ const BookInfo = ({ books, addToCart, cart }) => {
         <div className="books__container">
           <div className="row">
             <div className="book__selected--top">
-              <h2 className="book__selected--title--top">Reccomended Books</h2>
+              <h2 className="book__selected--title--top">Recommended Books</h2>
             </div>
             <div className="books">
               {books
