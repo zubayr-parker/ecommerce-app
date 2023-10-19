@@ -1,16 +1,25 @@
 import Nav from "./components/Nav";
 import Home from "./pages/Home";
 import Footer from "./components/Footer";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
 import Books from "./pages/Books";
 import { books } from "./data";
 import BookInfo from "./pages/BookInfo";
 import Cart from "./pages/Cart";
-import { React, useEffect, useState } from "react";
+import { React, useEffect, useLayoutEffect, useState } from "react";
+
+const Wrapper = ({children}) => {
+  const location = useLocation();
+  useLayoutEffect(() => {
+    document.documentElement.scrollTo(0, 0);
+  }, [location.pathname]);
+  return children
+} 
+
 
 function App() {
   const [cart, setCart] = useState([]);
-
+  
   function addToCart(book) {
     setCart([...cart, { ...book, quantity: 1 }]);
   }
@@ -47,8 +56,12 @@ function App() {
     
   }, [cart]);
 
+
+
   return (
     <Router>
+      <Wrapper>
+
       <div>
         <Nav numberOfItems={numberOfItems()} />
         <Routes>
@@ -59,7 +72,7 @@ function App() {
             element={
               <BookInfo books={books} addToCart={addToCart} cart={cart} />
             }
-          />
+            />
           <Route
             path="/cart"
             element={
@@ -74,6 +87,7 @@ function App() {
         </Routes>
         <Footer />
       </div>
+                </Wrapper>
     </Router>
   );
 }
